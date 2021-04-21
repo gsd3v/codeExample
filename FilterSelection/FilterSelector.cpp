@@ -12,18 +12,18 @@ const float HIGH_LIMIT_RESERVE_COEFFICIENT = 0.04f;
 
 //----------------------------------------------------------------------------
 
-//! Выбор фильтра из доступных
+//! Р’С‹Р±РѕСЂ С„РёР»СЊС‚СЂР° РёР· РґРѕСЃС‚СѓРїРЅС‹С…
 FilterInformation FilterSelector::select(float currentFreq)
 {
-  // По грубому критерию отбросим совсем неподходяшие
+  // РџРѕ РіСЂСѓР±РѕРјСѓ РєСЂРёС‚РµСЂРёСЋ РѕС‚Р±СЂРѕСЃРёРј СЃРѕРІСЃРµРј РЅРµРїРѕРґС…РѕРґСЏС€РёРµ
   std::vector<FilterInformation> filters_list = getSuitableFiltersList(currentFreq);
-  // Из оставшихся выберем лучший
+  // РР· РѕСЃС‚Р°РІС€РёС…СЃСЏ РІС‹Р±РµСЂРµРј Р»СѓС‡С€РёР№
   FilterInformation best = selectBest(currentFreq, &filters_list);
   return best;
 }
 //----------------------------------------------------------------------------
 
-//! Получение списка подходящих фильтров из списка доступных
+//! РџРѕР»СѓС‡РµРЅРёРµ СЃРїРёСЃРєР° РїРѕРґС…РѕРґСЏС‰РёС… С„РёР»СЊС‚СЂРѕРІ РёР· СЃРїРёСЃРєР° РґРѕСЃС‚СѓРїРЅС‹С…
 std::vector<FilterInformation> FilterSelector::getSuitableFiltersList(float currentFreq)
 {
   std::vector<FilterInformation> good_filters;
@@ -42,8 +42,8 @@ std::vector<FilterInformation> FilterSelector::getSuitableFiltersList(float curr
 }
 //----------------------------------------------------------------------------
 
-//! Выбор лучшего фильтра
-//! Лучший фильтр - фильтр, у которого верхняя граница лежит ближе всего к текущей частоте
+//! Р’С‹Р±РѕСЂ Р»СѓС‡С€РµРіРѕ С„РёР»СЊС‚СЂР°
+//! Р›СѓС‡С€РёР№ С„РёР»СЊС‚СЂ - С„РёР»СЊС‚СЂ, Сѓ РєРѕС‚РѕСЂРѕРіРѕ РІРµСЂС…РЅСЏСЏ РіСЂР°РЅРёС†Р° Р»РµР¶РёС‚ Р±Р»РёР¶Рµ РІСЃРµРіРѕ Рє С‚РµРєСѓС‰РµР№ С‡Р°СЃС‚РѕС‚Рµ
 FilterInformation FilterSelector::selectBest(float currentFreq,
                                                    const std::vector<FilterInformation> *list)
 {
